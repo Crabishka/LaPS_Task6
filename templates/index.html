@@ -453,10 +453,14 @@
         </div>
         <div class="col-md-2" style="background-color: grey" aria-readonly="true"></div>
         <div class="col-md-5" style="background-color: grey" aria-readonly="true">
-            <table class="table table-bordered" aria-readonly="true">
-                {% for key, value in sudoku.items() %}
-                    {{ value }}
-                {% endfor %}
+            <table aria-readonly="true">
+                {%- for row in sudoku.items()|batch(9) %}
+                    <tr>
+                        {%- for key,value in row %}
+                            <td>{{ value }}</td>
+                        {%- endfor %}
+                    </tr>
+                {%- endfor %}
             </table>
         </div>
     </div>

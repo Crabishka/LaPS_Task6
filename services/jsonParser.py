@@ -6,5 +6,5 @@ def get_sudoku_array(d):
             if d[key] == '':
                 sudoku[i][j] = 0
             else:
-                sudoku[i][j] = d[key]
+                sudoku[i][j] = int(d[key])
     return sudoku
