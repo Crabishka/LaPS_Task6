@@ -457,10 +457,15 @@
                 {%- for row in sudoku.items()|batch(9) %}
                     <tr>
                         {%- for key,value in row %}
-                            <td>{{ value }}</td>
+                            {% if sudoku_input[key] == '' %}
+                                <td id="out{{ key }}"> {{ value }}</td>
+                            {% else %}
+                                <td id="out{{ key }}" bgcolor="red"> {{ value }}</td>
+                            {% endif %}
                         {%- endfor %}
                     </tr>
                 {%- endfor %}
+
             </table>
         </div>
     </div>
